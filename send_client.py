@@ -13,25 +13,21 @@ conn = client.connect((host, port))
 
 payload_size = struct.calcsize("Q")
 
-def send():
-    while(True):
-        print("Connected @", conn)
-        try:
-            # OpenCV function, this will open the webcam on current machine
-            vid = cv2.VideoCapture(0)
-            while(vid.isOpened()):
+while(True):
+    print("Connected @", conn)
+    try:
+        # OpenCV function, this will open the webcam on current machine
+        vid = cv2.VideoCapture(0)
+        while(vid.isOpened()):
 
-                # metadata from the video frames (ex: pixel RGB values)
-                img, frame = vid.read()
-                a = pickle.dumps(frame)
-                message = struct.pack("Q", len(a)) + a
+            # metadata from the video frames (ex: pixel RGB values)
+            img, frame = vid.read()
+            a = pickle.dumps(frame)
+            message = struct.pack("Q", len(a)) + a
 
-                # send frames from local webcam
-                conn.sendall(message)
-                cv2.imshow('Sending ...', frame)
-        except:
-            break
+            # send frames from local webcam
+            conn.sendall(message)
+            cv2.imshow('Sending ...', frame)
+    except:
+        break
 
-t1 = threading.Thread(target = send)
-t1.start()
-t1.join()
