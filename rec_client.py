@@ -27,7 +27,7 @@ while(True):
     data  = data[msg_size:]
     frame = pickle.loads(frame_data)
     cv2.imshow("Receiving ...",frame)
-    
-
-
-
+    key = cv2.waitKey(10) 
+    if key == 13:
+        break 
+conn.close()

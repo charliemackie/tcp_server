@@ -26,5 +26,8 @@ while(True):
         # send frames from local webcam
         conn.sendall(message)
         cv2.imshow('Sending ...', frame)
+        key = cv2.waitKey(10) 
+        if key == 13:
+            conn.close()
     
 
