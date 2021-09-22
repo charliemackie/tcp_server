@@ -13,10 +13,9 @@ conn = client.connect((host, port))
 
 payload_size = struct.calcsize("Q")
 
-print("Connected @", conn)
-
 def send():
     while(True):
+        print("Connected @", conn)
         try:
             # OpenCV function, this will open the webcam on current machine
             vid = cv2.VideoCapture(0)

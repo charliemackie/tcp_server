@@ -13,10 +13,9 @@ conn = client.connect((host, port))
 
 payload_size = struct.calcsize("Q")
 
-print("Connected @", conn)
-
 def rec():
     while(True):
+        print("Connected @", conn)
         try:
             while len(data) < payload_size:
                 packet = conn.recv(4096)

@@ -17,6 +17,7 @@ def start():
     while(True):
         conn, addr = server.accept()
         clients.append(conn)
+        print(conn)
         # can multithread multiple connections
         t = threading.Thread(target = send, args = (conn, ))
         t.start()
