@@ -18,20 +18,10 @@ def start():
         conn, addr = server.accept()
         clients.append(conn)
         print(conn)
-        # can multithread multiple connections
-        t = threading.Thread(target = send, args = (conn, ))
-        t.start()
-
-# send the video data to all clients
-def send(fromConnection):
-    try:
         while(True):
-            data = fromConnection.recv(4096)
+            data = conn.recv(4096)
             for c in clients:
-                if c != fromConnection:
+                if c != conn:
                     c.send(data)
-    except:
-        print("Client Disconnected")
-
 start()
 
