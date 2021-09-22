@@ -1,5 +1,4 @@
 import socket
-import threading 
 
 # open to any IP address
 host = '0.0.0.0'
@@ -22,6 +21,6 @@ def start():
             data = conn.recv(4096)
             for c in clients:
                 if c != conn:
-                    c.send(data)
+                    c.sendall(data)
 start()
 
