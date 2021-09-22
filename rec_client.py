@@ -7,7 +7,7 @@ import threading
 client = socket.socket()
 
 host = "52.39.126.12"
-port = 5000
+port = 60000
 
 conn = client.connect((host, port))
 
