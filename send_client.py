@@ -17,7 +17,7 @@ while(True):
     print("Connected @", conn)
     try:
         # OpenCV function, this will open the webcam on current machine
-        vid = cv2.VideoCapture(0)
+        vid = cv2.VideoCapture(-1)
         while(vid.isOpened()):
 
             # metadata from the video frames (ex: pixel RGB values)
