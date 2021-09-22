@@ -11,7 +11,7 @@ payload_size = struct.calcsize("Q")
 # streaming socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
     conn.connect((host, port))
-
+    
     # recv function recieves data up to input size of bytes
     data = conn.recv(4096)
 

@@ -2,7 +2,6 @@ import cv2
 import pickle
 import struct
 import socket
-import threading
 
 host = "52.39.126.12"
 port = 60000
@@ -10,16 +9,9 @@ port = 60000
 payload_size = struct.calcsize("Q")
 
 # make a streaming socket
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((host, port))
-
-    # max amount of connections to listen for
-    s.listen(5)
-    print("Listening on port", port)
-
-    # connect with client on another machine & network
-    conn, addr = s.accept()
-    print("Accepted connection:", conn, addr)
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
+    
+    conn.connect((host, port))
     
     with conn:
         if conn:
