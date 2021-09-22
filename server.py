@@ -7,7 +7,7 @@ port = 60000
 
 # make the socket and bind to incoming client connection
 server = socket.socket()
-server.bind(host, port)
+server.bind((host, port))
 server.listen(4)
 
 clients = []
