@@ -7,20 +7,21 @@ port = 60000
 # make the socket and bind to incoming client connection
 server = socket.socket()
 server.bind((host, port))
-server.listen(4)
+server.listen(20)
 
 clients = []
 
 # accept connections
 def start():
     while(True):
-        conn, addr = server.accept()
-        clients.append(conn)
-        print(conn)
+        conn1, address1 = server.accept()
+        conn2, address2 = server.accept()
+        clients.append(conn1)
+        clients.append(conn2)
+        print(conn1)
+        print(conn2)
         while(True):
-            data = conn.recv(4096)
-            for c in clients:
-                if c != conn:
-                    c.sendall(data)
+            data = conn1.recv(4096)
+            conn2.sendall(data)
 start()
 
