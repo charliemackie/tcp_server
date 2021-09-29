@@ -11,8 +11,8 @@ server.listen(2)
 # accept connections
 def start():
     while(True):
-        conn1 = server.accept()
-        conn2 = server.accept()
+        conn1, add1 = server.accept()
+        conn2, add2 = server.accept()
         print(conn1)
         print(conn2)
         while(conn1 != None and conn2 != None):
