@@ -10,6 +10,7 @@ payload_size = struct.calcsize("Q")
 
 # streaming socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
+    
     conn.connect((host, port))
 
     with conn:
@@ -19,7 +20,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
 
             while True:
                 while len(data) < payload_size:
-                    packet = conn.recv(4*1024)
+                    packet = conn.recv(4*10240)
                     if not packet: 
                         break
                     data += packet
@@ -33,6 +34,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
                 frame = pickle.loads(frame_data)
                 cv2.imshow("Receiving...",frame)
                 key = cv2.waitKey(1) 
-                if key  == 13:
+                if key == 13:
                     break
     conn.close()
+cv2.destroyAllWindows()
