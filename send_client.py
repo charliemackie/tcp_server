@@ -3,7 +3,7 @@ import pickle
 import struct
 import socket
 
-host = "52.39.126.12"
+host = "52.39.126.12" 
 port = 60000
 
 payload_size = struct.calcsize("Q")
@@ -17,6 +17,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
         if conn:
             # OpenCV function, this will open the webcam on current machine
             vid = cv2.VideoCapture(0)
+
             while(vid.isOpened()):
 
                 # metadata from the video frames (ex: pixel RGB values)
