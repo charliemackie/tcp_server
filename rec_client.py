@@ -33,8 +33,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
                 data  = data[msg_size:]
                 frame = pickle.loads(frame_data)
                 cv2.imshow("Receiving...",frame)
-                key = cv2.waitKey(1) 
-                if key == 13:
-                    break
+                key = cv2.waitKey(1)
     conn.close()
 cv2.destroyAllWindows()
