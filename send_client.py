@@ -3,6 +3,7 @@ import pickle
 import struct
 import socket
 
+# IP of the EC2 server
 host = "52.39.126.12" 
 port = 60000
 
@@ -27,11 +28,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
 
                 # send frames from local webcam
                 conn.sendall(message)
-                #cv2.imshow('Sending...', frame)
-                key = cv2.waitKey(1) 
-                if key == 13:
-                    conn.close()
-                
-cv2.destroyAllWindows()
 
+                #cv2.imshow('Sending...', frame)
+                key = cv2.waitKey(0) 
+        
 

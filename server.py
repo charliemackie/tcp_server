@@ -8,20 +8,14 @@ server = socket.socket()
 server.bind((host, port))
 server.listen(2)
 
-clients = []
-
 # accept connections
 def start():
     while(True):
-        conn1, address1 = server.accept()
-        conn2, address2 = server.accept()
-        clients.append(conn1)
-        clients.append(conn2)
+        conn1 = server.accept()
+        conn2 = server.accept()
         print(conn1)
         print(conn2)
         while(conn1 != None and conn2 != None):
             data = conn1.recv(4096)
-            conn2.sendall(data)
-                
-                
+            conn2.sendall(data)    
 start()
