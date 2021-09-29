@@ -19,7 +19,7 @@ def start():
         clients.append(conn2)
         print(conn1)
         print(conn2)
-        while(True & conn1 & conn2):
+        while(True and conn1 != None and conn2 != None):
             data = conn1.recv(4096)
             conn2.sendall(data)
 start()
