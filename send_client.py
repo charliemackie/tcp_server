@@ -2,6 +2,7 @@ import cv2
 import pickle
 import struct
 import socket
+import imutils
 
 # IP of the EC2 server
 host = "52.39.126.12" 
@@ -23,6 +24,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
 
                 # metadata from the video frames (ex: pixel RGB values)
                 img, frame = vid.read()
+                frame = imutils.resize(frame, width=320)
                 a = pickle.dumps(frame)
                 message = struct.pack("Q", len(a)) + a
 
@@ -30,6 +32,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
                 conn.sendall(message)
 
                 #cv2.imshow('Sending...', frame)
-                key = cv2.waitKey(0) 
-        
+                key = cv2.waitKey(1) 
+
 

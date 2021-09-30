@@ -6,6 +6,7 @@ import socket
 # IP of the EC2 server
 host = "52.39.126.12"
 port = 60000
+data = b""
 
 # size of a long type in bits
 payload_size = struct.calcsize("Q")
