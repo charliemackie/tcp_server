@@ -18,10 +18,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as conn:
 
     with conn:
         if conn:
-        # recv function recieves data up to input size of bytes
+
+            # recv function recieves data up to input size of bytes
             data = conn.recv(4096)
 
             while True:
+
+                # video
                 while len(data) < payload_size:
                     packet = conn.recv(4*1024)
                     if not packet: 
