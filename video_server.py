@@ -2,13 +2,13 @@ import socket
 import threading
 
 host = '52.39.126.12'
-port_commands = 60001
+port = 60001
 
 socketServer = socket.socket()
 
 client = []
 
-socketServer.bind((host, port_commands))
+socketServer.bind((host, port))
 socketServer.listen(5)
 
 def start(socketServer):
