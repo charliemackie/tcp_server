@@ -1,7 +1,7 @@
 import socket
 import threading
 
-host = '52.39.126.12'
+host = '0.0.0.0'
 port = 60001
 
 socketServer = socket.socket()
