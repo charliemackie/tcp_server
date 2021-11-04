@@ -1,10 +1,4 @@
 import socket
-import pickle
-import multiprocessing
-import imutils
-import cv2
-import struct
-import threading
 
 host = "52.39.126.12"
 port = 60000
