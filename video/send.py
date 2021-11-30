@@ -4,7 +4,7 @@ import imutils
 import cv2
 import struct
 
-host = "52.39.126.12"
+host = "34.209.242.159"
 port = 60001
 
 conn = socket.socket()

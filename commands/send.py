@@ -1,6 +1,6 @@
 import socket
 
-host = "52.39.126.12"
+host = "34.217.87.238"
 port = 60000
 
 conn = socket.socket()
